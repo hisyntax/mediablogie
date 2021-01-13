@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="msg-container">
+            <div class="blog">
+                <div class="blog-img">
+                    <img src="{{ post.thumbnail.url }}" alt="">
+                </div>
+                <div class="row mt-1">
+                  <div class="col-xl-4 col-sm-12 mt-2" id="body-tag">{{ post.timestamp|timesince }} ago</div>
+                  <div class="col-xl-8 col-sm-12 text-center" id="blog-title-tag">{{ post.title }}</div>
+                </div>
+            </div>
+            <div class="blog-msg">
+                <p class="container" id="body-tag">{{ post.overview }}</p>
+            </div>
+            <div class="container">
+                <p>{{ post.bf_link }} <a href="{{ post.link }}" target="_blank">{{ post.link }}</a> {{ post.af_link }}</p>
+            </div>
+        </div>
+    <div class="container mt-5 mb-3" id="header">Lattest from blog</div>
+    <div class="container-fluid" >
+      <div class="row">
+        {% include 'lattest.html' with lattest=lattest %}
+      </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+<div class="header">
+    <div class="row pt-1 pb-2">
+        <div class="col-xl-6">
+            <div class="row ml-1"><a href="/" id="blog_name" class="btn-primary p-2">MeDiA Bloggie</a></div>
+        </div>
+       <!--- <div class="col-3 mt-2 text-center"><a href="index.html" id="nav">Home</a></div>-->
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 mt-2 text-center">
+          <form class="d-flex" action="{% url 'search' %}" >
+          <input type="text" class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>

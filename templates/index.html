@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <div class="bg-img" style="background-image: url('{% static 'images/main3.jpg' %}')">
+            <p id="img-bg">THE PRIDE OF MEDIA</p>
+            <p id="img-bg2">information is power</p>
+        </div>
+        <div class="container mt-5 mb-3" id="header">Blog post</div>
+        
+        <div class="container-fluid">
+          <div class="row">
+            {% for i in post%}
+              <div class="col-xl-3 col-sm-6 mb-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="{{ i.thumbnail.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12">{{ i.timestamp|timesince }} ago</div>
+                      <div class="col-12"><h5 class="card-title">{{ i.title }}</h5></div>
+                    </div>
+                    <p class="card-text" id="body-tag">{{ i.overview|truncatechars:100 }}</p>
+                    <a href="{{ i.get_absolute_url }}" class="btn btn-primary" id="body-tag">Read More</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+        </div>
+    <div class="container mt-5 mb-3" id="header">Lattest from blog</div>
+    <div class="container-fluid" >
+      <div class="row">
+        {% include 'lattest.html' with lattest=lattest %}
+      </div>
+    </div>
+    
+    {% endblock content %}
